@@ -1,4 +1,4 @@
-/* Pål's London — henter GeoJSON, tegner på Leaflet, filtrerer.
+/* Påls London — henter GeoJSON, tegner på Leaflet, filtrerer.
    Data og presentasjon er adskilt: nye steder legges inn i data/nabolag-london.geojson.
    Ny kategori krever ett oppslag i KATEGORIER under, pluss ingenting annet —
    filterknappen lages automatisk. */

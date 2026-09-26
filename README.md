@@ -1,4 +1,4 @@
-# Pål's London
+# Påls London
 
 Interaktivt kart over nabolag, gater, gåturer og steder i London.
 
