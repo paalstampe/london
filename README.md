@@ -2,17 +2,17 @@
 
 Interaktivt kart over nabolag, gater, gåturer og steder i London.
 
-Publisert: https://paalstampe.github.io/London/
+Publisert: https://paalstampe.github.io/nabolag-london/
 
 ## Struktur
 
 ```
-London/
+nabolag-london/
 ├── index.html          struktur: kartcontainer, sidebar, filtre
 ├── style.css           alt visuelt: farger, typografi, kort
 ├── app.js              logikk: henter GeoJSON, tegner på Leaflet, filtrerer
 ├── data/
-│   └── london.geojson  dataene — dette er "databasen"
+│   └── nabolag-london.geojson  dataene — dette er "databasen"
 ├── arkiv/              tidligere versjoner, ikke i bruk
 ├── HANDOVER.md         statusdokument
 └── README.md
@@ -42,7 +42,7 @@ Nye felter kan legges til fritt — koden ignorerer det den ikke kjenner.
 
 ## Redigering
 
-- **Punkter og tekst:** rediger `data/london.geojson` direkte, eller på GitHub i nettleseren.
+- **Punkter og tekst:** rediger `data/nabolag-london.geojson` direkte, eller på GitHub i nettleseren.
 - **Gater og gåturer:** bruk [geojson.io](https://geojson.io) — dra inn filen, tegn med linjeverktøyet, last ned igjen.
 
 ## Lokal kjøring
@@ -50,7 +50,7 @@ Nye felter kan legges til fritt — koden ignorerer det den ikke kjenner.
 `fetch()` blokkeres ved åpning fra `file://`. Kjør i stedet:
 
 ```
-cd London
+cd nabolag-london
 python3 -m http.server
 ```
 

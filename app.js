@@ -1,9 +1,9 @@
 /* Pål's London — henter GeoJSON, tegner på Leaflet, filtrerer.
-   Data og presentasjon er adskilt: nye steder legges inn i data/london.geojson.
+   Data og presentasjon er adskilt: nye steder legges inn i data/nabolag-london.geojson.
    Ny kategori krever ett oppslag i KATEGORIER under, pluss ingenting annet —
    filterknappen lages automatisk. */
 
-const DATA_URL = 'data/london.geojson';
+const DATA_URL = 'data/nabolag-london.geojson';
 
 const KATEGORIER = {
   nabolag:    { navn: 'Nabolag',    farge: '#8A5A2B' },
@@ -22,6 +22,11 @@ const KATEGORIER = {
 const SONER = ['Central', 'North', 'South', 'East', 'West'];
 
 const PAPIR = '#F7F4EE';
+
+/* CARTO krever API-nøkkel på rasterkartene siden august 2026. Nøkkelen er gratis
+   og hentes på https://carto.com/basemaps/apikey — lim den inn her.
+   Står den tom, tegnes kartet fortsatt, men med "API KEY REQUIRED"-vannmerke. */
+const CARTO_KEY = '';
 
 /* ---------- tilstand ---------- */
 
@@ -57,8 +62,12 @@ const el = {
 const kart = L.map('kart', { zoomControl: true, attributionControl: true })
   .setView([51.5105, -0.1235], 12);
 
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+const CARTO_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
+  + (CARTO_KEY ? '?key=' + CARTO_KEY : '');
+
+L.tileLayer(CARTO_URL, {
   maxZoom: 19,
+  subdomains: 'abcd',
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &middot; &copy; <a href="https://carto.com/attributions">CARTO</a>'
 }).addTo(kart);
 
@@ -380,7 +389,7 @@ fetch(DATA_URL)
     if (state.oppslag.length) kart.fitBounds(alle.getBounds(), { padding: [50, 50] });
 
     const oppdatert = (gj.metadata && gj.metadata.oppdatert) ? gj.metadata.oppdatert : null;
-    el.fotTekst.innerHTML = 'Rediger <code>data/london.geojson</code> for å legge til steder.' +
+    el.fotTekst.innerHTML = 'Rediger <code>data/nabolag-london.geojson</code> for å legge til steder.' +
       (oppdatert ? ' Sist oppdatert ' + esc(oppdatert) + '.' : '');
   })
   .catch(err => {

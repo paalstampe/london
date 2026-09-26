@@ -23,7 +23,7 @@ Todelt strategi:
 
 Ferdig:
 
-- Datamodellen er definert og `data/london.geojson` er fylt med 44 nabolag,
+- Datamodellen er definert og `data/nabolag-london.geojson` er fylt med 44 nabolag,
   pluss tre eksempelpunkter (park, café, galleri) og to eksempel-linjer
   (én gate, én gåtur). Eksemplene er merket `EKSEMPEL` i `notat`-feltet.
 - `README.md` dokumenterer datamodellen.
@@ -33,10 +33,11 @@ Ferdig:
   49 features tegnes, filtre på sone/kategori/favoritt virker, søk virker,
   gåtur-kortet virker, ingen konsollfeil, ingen horisontal scroll på mobil.
 - Gammel prototype `london-map_1.html` er flyttet til `arkiv/`.
-  Duplikatet `london.geojson` i rotmappen er slettet — `data/london.geojson` er fasit.
+  Duplikatet `london.geojson` i rotmappen er slettet — `data/nabolag-london.geojson` er fasit.
 
-- Repoet `paalstampe/London` er opprettet og publisert via GitHub Pages:
-  https://paalstampe.github.io/London/ (Deploy from a branch, `main` / `(root)`).
+- Repoet `paalstampe/nabolag-london` (omdøpt fra `London` i september 2026) er publisert via GitHub Pages:
+  https://paalstampe.github.io/nabolag-london/ (Deploy from a branch, `main` / `(root)`).
+  Den gamle adressen `…github.io/London/` virker ikke lenger.
 
 Gjenstår:
 
@@ -48,17 +49,17 @@ Gjenstår:
 ## 3. Filer
 
 Arbeidskatalogen er den lokale klonen av repoet:
-`/Users/palstampe/Documents/GitHub/London/`.
+`/Users/palstampe/Documents/GitHub/nabolag-london/`.
 Dette er eneste gjeldende kopi. Tidligere kopier i `~/Downloads/london-nabolag/`
 og `Documents/Privat/Prosjekter/Nabolag London/` er utgått.
 
 ```
-London/
+nabolag-london/
 ├── index.html                      ← ferdig, retning A
 ├── style.css                       ← ferdig
 ├── app.js                          ← ferdig
 ├── data/
-│   └── london.geojson              ← ferdig
+│   └── nabolag-london.geojson      ← ferdig
 ├── arkiv/
 │   └── london-map_1.html           ← gammel prototype, ikke i bruk
 ├── Tips til nabolag i London.md    ← råmateriale, kilden til dataene
@@ -164,11 +165,11 @@ nettstedet pauses når de er brukt opp). GitHub Pages har ingen slik måler og
 er valgt. Cloudflare Pages er et godt alternativ hvis CDN-hastighet blir viktig.
 
 1. Opprett konto på github.com. Brukernavnet inngår i URL-en.
-2. New repository → `london-nabolag` → **Public** (Pages på privat repo krever betalt plan).
-3. Add file → Upload files. GeoJSON legges på `data/london.geojson` — skriv stien
+2. New repository → `nabolag-london` → **Public** (Pages på privat repo krever betalt plan).
+3. Add file → Upload files. GeoJSON legges på `data/nabolag-london.geojson` — skriv stien
    i filnavnfeltet, så lages mappen.
 4. Settings → Pages → Deploy from a branch → `main` / `(root)` → Save.
-5. Live etter ett–to minutter på `https://brukernavn.github.io/london-nabolag/`.
+5. Live etter ett–to minutter på `https://paalstampe.github.io/nabolag-london/`.
 6. Egen adresse: CNAME-record i DNS + domenet under Settings → Pages.
 
 Senere endringer gjøres i nettleseren: klikk filen, blyantikon, rediger, commit.
@@ -180,7 +181,7 @@ Live etter cirka 30 sekunder.
 
 1. ~~Flytt mappen inn i prosjektmappen.~~ Gjort.
 2. ~~Bygg `index.html`, `style.css` og `app.js`.~~ Gjort.
-3. Kjør lokalt og se over: `cd "~/Documents/Privat/Prosjekter/Nabolag London" && python3 -m http.server`,
+3. Kjør lokalt og se over: `cd ~/Documents/GitHub/nabolag-london && python3 -m http.server`,
    så `http://localhost:8000`.
 4. Rett opp koordinatene i de to eksempel-linjene i geojson.io.
 5. Opprett repo og publiser.
